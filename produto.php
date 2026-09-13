@@ -1,3 +1,7 @@
+<?php
+include 'conexão.php';
+$conexao = conectaBD();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,16 +27,18 @@
             $sql = "SELECT * FROM `estoque`";
             $resultado = mysqli_query($conexao, $sql);
 
-            while($tabela = mysqli_fetch_assoc($resultado)){
-       
-             <tr>
-                <td><?php echo $tabela['codigo'];?></td>
-                <td><?php echo $tabela['idFornecedor'];?></td>
-                <td><?php echo $tabela['nome'];?></td>
-                <td><?php echo $tabela['val'];?></td>
-                <td><?php echo $tabela['valor'];?></td>
-                <td><?php echo $tabela['quantidade'];?></td>
-             </tr> }
+            while ($tabela = mysqli_fetch_assoc($resultado)) {
+                ?>
+                <tr>
+                    <td><?php echo $tabela['cod']; ?></td>
+                    <td><?php echo $tabela['idFornecedor']; ?></td>
+                    <td><?php echo $tabela['nome']; ?></td>
+                    <td><?php echo $tabela['val']; ?></td>
+                    <td><?php echo $tabela['valor']; ?></td>
+                    <td><?php echo $tabela['quant']; ?></td>
+                </tr>
+                <?php
+            }
 ?>
     </table>
 

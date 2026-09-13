@@ -7,7 +7,7 @@ Function conectaBD() {
 
     $conexao = mysqli_connect($Servername, $Username, $Password, $database);
 
-    if(!conexao) {
+    if (!$conexao) {
         die("Conexão Falhou" . mysqli_connect_error());
             }
 
