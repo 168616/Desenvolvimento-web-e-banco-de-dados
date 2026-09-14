@@ -12,6 +12,7 @@ $conexao = conectaBD();
 <body>
     <h1>Produtos</h1>
     <h4><a href="index.html">Home</a></h4>
+    <h4><a href="estoqueinsert.html">Cadastrar Produto</a></h4>
     <br><br>
     <table>
         <tr>
