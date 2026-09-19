@@ -13,7 +13,7 @@ $conexao = conectaBD();
     <h1>Vendas</h1>
     <h4><a href="index.html">Home</a></h4>
     <br><br>
-    <table>
+    <table border="1">
         <tr>
             <th>Matricula</th>
             <th>Nome</th>
@@ -24,17 +24,21 @@ $conexao = conectaBD();
             $sql = "SELECT * FROM `vendedor`";
             $resultado = mysqli_query($conexao, $sql);
 
-            while ($tabela = mysqli_fetch_assoc($resultado)) {
+            while ($i = mysqli_fetch_assoc($resultado)) {
                 ?>
                 <tr>
-                    <td><?php echo $tabela['matricula']; ?></td>
-                    <td><?php echo $tabela['nome']; ?></td>
-                    <td><?php echo $tabela['salario']; ?></td>
+                    <td><?php echo $i['matricula']; ?></td>
+                    <td><?php echo $i['nome']; ?></td>
+                    <td><?php echo $i['salario']; ?></td>
+
+                      <td><a href="<?php echo "vendedorEdit.php?var_matricula=". $i['matricula'] ."&var_salario=". $i['salario']."&var_nome=". $i['nome']; ?>">Alterar</a></td>
+                    <td><a href="<?php echo "vendedorDel.php?var_matricula=". $i['matricula']?>">Excluir</a></td>
                 </tr>
                 <?php
             }
 ?>
     </table>
+        <h4><a href="vendedorInsert.html">Cadastrar Novo vendedor</a></h4>
 
 </body>
 </html>
