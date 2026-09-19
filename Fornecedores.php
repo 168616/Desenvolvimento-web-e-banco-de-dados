@@ -10,10 +10,10 @@ $conexao = conectaBD();
     <title>Document</title>
 </head>
 <body>
-    <h1>Produtos</h1>
+    <h1>Fornecedores</h1>
     <h4><a href="index.html">Home</a></h4>
     <br><br>
-    <table>
+    <table border="1">
         <tr>
             <th>Código</th>
             <th>Nome</th>
@@ -25,17 +25,25 @@ $conexao = conectaBD();
             $sql = "SELECT * FROM `fornecedor`";
             $resultado = mysqli_query($conexao, $sql);
 
-            while ($tabela = mysqli_fetch_assoc($resultado)) {
+            while ($i = mysqli_fetch_assoc($resultado)) {
                 ?>
                 <tr>
-                    <td><?php echo $tabela['ID']; ?></td>
-                    <td><?php echo $tabela['nome']; ?></td>
-                    <td><?php echo $tabela['tipoProd']; ?></td>
+                    <td><?php echo $i['ID']; ?></td>
+                    <td><?php echo $i['nome']; ?></td>
+                    <td><?php echo $i['tipoProd']; ?></td>
+                
+                    <td><a href="<?php echo "fornecedoresEdit.php?var_ID=". $i['ID'] ."&var_nome=". $i['nome'] ."&var_tipoProd=". $i['tipoProd']; ?>">Alterar</a></td>
+                    <td><a href="<?php echo "fornecedoresDel.php?var_ID=". $i['ID']?>">Excluir</a></td>
                 </tr>
                 <?php
             }
 ?>
     </table>
+        <h4><a href="fornecedorInsert.html">Cadastrar Novo Fornecedor</a></h4>
+
+    <?php
+    mysqli_close($conexao);
+    ?>
 
 </body>
 </html>
