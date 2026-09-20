@@ -8,6 +8,31 @@ $conexao = conectaBD();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vendas</title>
+    <style>
+        h1 {
+            color: #14475f;
+        }
+        table {
+            margin-top: 20px;
+            
+        }
+        th,td {
+            padding: 10px 20px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #14475f;
+            color: white;
+            width: 25%;
+        }
+        td:nth-child(odd) {
+            background-color: white;
+        }
+        td:nth-child(even) {
+            background-color: #d2e4ff;
+}
+    </style>
 </head>
 <body>
     <h1>Vendas</h1>
